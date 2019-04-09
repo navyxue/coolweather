@@ -156,7 +156,7 @@ public class ChooseAreaFragment extends Fragment {
      */
     private void queryCounties() {
         titleText.setText(selectedCity.getCityName());
-        backButton.setVisibility(View.INVISIBLE);
+        backButton.setVisibility(View.VISIBLE);
         // 根据城市ID查询县级数据
         countyList = LitePal.where("cityId = ?", String.valueOf(selectedCity.getId())).find(County.class);
         if (countyList != null && countyList.size() > 0) {
@@ -230,7 +230,7 @@ public class ChooseAreaFragment extends Fragment {
      * 显示进度对话框
      */
     private void showProcessDialog() {
-        if (progressDialog != null) {
+        if (progressDialog == null) {
             progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("正在加载...");
             progressDialog.setCanceledOnTouchOutside(false);

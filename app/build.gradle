@@ -9,16 +9,42 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "default"
+    }
+    /*productFlavors {
+        qihoo {
+            applicationId "com.coolweather.android.qihoo"
+        }
+        baidu {
+            applicationId "com.coolweather.android.baidu"
+        }
+    }*/
+    signingConfigs {
+        config {
+            storeFile file(KEY_PATH)
+            storePassword KEY_PASS
+            keyAlias ALIAS_NAME
+            keyPassword ALIAS_PASS
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
+    }
+    sourceSets {
+        main { java.srcDirs = ['src/main/java', 'src/baidu/java'] } 
+        /*baidu {resources.srcDirs = ['src/baidu/resources', 'src/baidu/res'] }
+        qihoo {
+            java.srcDirs = ['src/qihoo/java', 'src/qihoo/java'] 
+            resources.srcDirs =['src/qihoo/res', 'src/qihoo/res']
+}*/
     }
 }
 

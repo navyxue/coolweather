@@ -48,7 +48,7 @@
         <!-- 第二个控件为选中城市的碎片 -->
         <fragment
             android:id="@+id/choose_area_fragment"
-            android:name="com.coolweather.android.ChooseAreaFragment"
+            android:name="com.coolweather.navy.ChooseAreaFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"/>
